@@ -28,7 +28,7 @@ def test_short_message():
     extracted = extract_message(stego, seed)
     
     assert extracted == msg, "Wyciągnięta wiadomość nie zgadza się z oryginałem!"
-    print(f"✅ Test 1 Zakończony Sukcesem. Odczytano: '{extracted}'")
+    print(f"Test 1 Zakończony Sukcesem. Odczytano: '{extracted}'")
     
 def test_long_message():
     print("\nTest 2: Ukryj długą wiadomość (1000 znaków) w 30-sekundowym pliku WAV stereo 48kHz i odczytaj ją.")
@@ -43,7 +43,7 @@ def test_long_message():
     extracted = extract_message(stego, seed)
     
     assert extracted == msg, "Wyciągnięta wiadomość nie zgadza się z oryginałem!"
-    print(f"✅ Test 2 Zakończony Sukcesem. Odczytano wiadomość o długości {len(extracted)} znaków.")
+    print(f"Test 2 Zakończony Sukcesem. Odczytano wiadomość o długości {len(extracted)} znaków.")
 
 def test_capacity_exceeded():
     print("\nTest 3: Próba ukrycia wiadomości dłuższej niż pojemność pliku audio.")
@@ -58,9 +58,9 @@ def test_capacity_exceeded():
     
     try:
         hide_message(original, msg, stego, seed)
-        print("❌ Test 3 Zakończony Niepowodzeniem. Nie zgłoszono błędu!")
+        print("Test 3 Zakończony Niepowodzeniem. Nie zgłoszono błędu!")
     except ValueError as e:
-        print(f"✅ Test 3 Zakończony Sukcesem. Oczekiwany błąd: {e}")
+        print(f"Test 3 Zakończony Sukcesem. Oczekiwany błąd: {e}")
 
 def test_wrong_seed():
     print("\nTest 4: Odczyt wiadomości z użyciem nieprawidłowego ziarna.")
@@ -76,9 +76,9 @@ def test_wrong_seed():
     
     try:
         extracted = extract_message(stego, wrong_seed)
-        print(f"❌ Test 4 Zakończony Niepowodzeniem. Odczytano: {extracted}")
+        print(f"Test 4 Zakończony Niepowodzeniem. Odczytano: {extracted}")
     except ValueError as e:
-        print(f"✅ Test 4 Zakończony Sukcesem. Oczekiwany błąd odczytu: {e}")
+        print(f"Test 4 Zakończony Sukcesem. Oczekiwany błąd odczytu: {e}")
 
 if __name__ == "__main__":
     test_short_message()
